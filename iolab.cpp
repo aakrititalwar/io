@@ -145,7 +145,7 @@ class LOOK : public ioScheduler{
             i2 = io_wait_queue.begin();
             while(i != io_wait_queue.end()){
             pos++;
-            if((*i)->track < curr_track && ((curr_track - (*i)->track) < min_diff)){
+            if((*i)->track <= curr_track && ((curr_track - (*i)->track) < min_diff)){
                     NEXT_IO = *i;
                     min_pos = pos;
                     min_diff = curr_track - (*i)->track;
@@ -285,7 +285,7 @@ class FLOOK : public ioScheduler{
             i2 = active_queue->begin();
             while(i != active_queue->end()){
             pos++;
-            if((*i)->track < curr_track && ((curr_track - (*i)->track) < min_diff)){
+            if((*i)->track <= curr_track && ((curr_track - (*i)->track) < min_diff)){
                     NEXT_IO = *i;
                     min_pos = pos;
                     min_diff = curr_track - (*i)->track;
